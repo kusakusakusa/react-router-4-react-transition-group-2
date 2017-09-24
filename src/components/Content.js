@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import FadeTransition from '_components/FadeTransition'
 
@@ -24,6 +25,9 @@ class Content extends Component {
         
         .cell.text-center
           %h1 This is {params.contentId} page !!
+        
+        .cell.auto
+          %Link(to="/") Back
     ~)
   }
 }
