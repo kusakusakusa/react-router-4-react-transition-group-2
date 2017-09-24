@@ -22,11 +22,10 @@ class Content extends Component {
         timeout={350}
         classNames="fade"
         shouldShow={this.state.in})
-        
+
         .cell.text-center
           %h1 This is {params.contentId} page !!
-        
-        .cell.auto
+          
           %Link(to="/") Back
     ~)
   }
