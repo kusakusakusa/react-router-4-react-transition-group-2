@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import FadeTransition from '_components/FadeTransition'
+
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -14,10 +16,15 @@ class Home extends Component {
 
   render() {
     return (~
-      %div
-        %h1 This is HOME page
-        %br
-        {this.renderLinks()}
+      %FadeTransition(
+        timeout={350}
+        classNames="fade"
+        shouldShow={this.state.in})
+        
+        %div
+          %h1 This is HOME page
+          %br
+          {this.renderLinks()}
     ~)
   }
 

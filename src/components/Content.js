@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import FadeTransition from '_components/FadeTransition'
+
 class Content extends Component {
   constructor(props) {
     super(props)
@@ -15,8 +17,13 @@ class Content extends Component {
     const { path, params } = this.props.match
 
     return (~
-      .cell.text-center
-        %h1 This is {params.contentId} page !!
+      %FadeTransition(
+        timeout={350}
+        classNames="fade"
+        shouldShow={this.state.in})
+        
+        .cell.text-center
+          %h1 This is {params.contentId} page !!
     ~)
   }
 }
