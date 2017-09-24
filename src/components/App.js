@@ -5,21 +5,18 @@ import Content from '_components/Content'
 import Home from '_components/Home'
 
 const App = () => {
-  return (
-    <main className='grid-container'>
-      <div className='grid-x grid-margin-x'>
-        <Switch>
-          <Route
+  return (~
+    %main.grid-container
+      .grid-x.grid-margin-x
+        %Switch
+          %Route(
             path="/:contentId"
-            component={Content} />
-          <Route
+            component={Content})
+          %Route(
             path="/"
-            exact
-            component={Home} />
-        </Switch>
-      </div>
-    </main>
-  )
+            exact=""
+            component={Home})
+  ~)
 }
 
 export default App
