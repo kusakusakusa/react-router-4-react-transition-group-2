@@ -15,8 +15,10 @@ class Content extends Component {
     const { path, params } = this.props.match
 
     return (~
-      %div
-        %h1 {params.contentId}
+      .cell.text-center
+        %h1 This is {params.contentId} page !!
     ~)
   }
 }
+
+export default Content
