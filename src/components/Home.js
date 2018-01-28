@@ -1,54 +1,35 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
-import FadeTransition from '_components/FadeTransition'
+import FadeWrapper from '_components/FadeWrapper'
 
-class Home extends Component {
-  constructor(props) {
-    super(props)
+const Home = () => (
+	<div>
+		<h1>This is HOME page</h1>
+		<br/>
+		{renderLinks()}
+	</div>
+);
 
-    this.state = { in: true }
-  }
+const renderLinks = () => {
+	return [
+		"Luffy",
+		"Zoro",
+		"Nami",
+		"Usopp",
+		"Sanji",
+		"Chopper",
+		"Nico Robin",
+		"Franky",
+		"Brooke",
+	].map(character => {
+		return (
+			<Link key={character}
+			      to={`/${character.toLowerCase()}`}>
+				Visit {character} now! <br/>
+			</Link>
+		)
+	})
+};
 
-  componentWillUnmount() {
-    this.setState({in: false})
-  }
-
-  render() {
-    return (~
-      %FadeTransition(
-        timeout={350}
-        classNames="fade"
-        shouldShow={this.state.in})
-        
-        %div
-          %h1 This is HOME page
-          %br
-          {this.renderLinks()}
-    ~)
-  }
-
-  renderLinks = () => {
-    return [
-      "Luffy",
-      "Zoro",
-      "Nami",
-      "Usopp",
-      "Sanji",
-      "Chopper",
-      "Nico Robin",
-      "Franky",
-      "Brooke",
-    ].map(character => {
-      return (~ 
-        %Link(
-          key={character}
-          to={`/${character.toLowerCase()}`})
-          Visit {character} now!
-          %br
-      ~)
-    })
-  }
-}
-
-export default Home
+export default FadeWrapper(Home)
