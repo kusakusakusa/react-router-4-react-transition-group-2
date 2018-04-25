@@ -53,7 +53,8 @@ module.exports = {
     new CleanWebpackPlugin(pathsToClean, cleanOptions),
     new HtmlWebpackPlugin({
       inject: true,
-      template: process.env.NODE_ENV === 'production' ? "./src/index.production.html" : "./src/index.html"
+      template: process.env.NODE_ENV === 'production' ? "./src/index.production.html" : "./src/index.html",
+      filename: "../index.html"
     }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'async'
